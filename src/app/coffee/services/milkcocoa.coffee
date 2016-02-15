@@ -1,7 +1,12 @@
-angular.module('milcotaker').factory('milkcocoa', [ ->
+angular.module('milcotaker').factory('Milkcocoa', [ ->
   milkcocoa = new MilkCocoa('flagiknz7vkf.mlkcca.com')
 
   return {
-    milkcocoa: milkcocoa
+    object: milkcocoa
+
+    getDataStore: (name) ->
+      dataStoreName = name | 'default'
+      dataStore = milkcocoa.dataStore(name)
+      return dataStore
   }
 ])
