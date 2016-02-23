@@ -7,7 +7,6 @@ angular.module('milcotaker').controller('InputListController', [
     memberStore = Milkcocoa.getDataStore('member')
 
     inputStore.on 'send', (data) ->
-      console.log 'log: got inputStore data'
       for member in $scope.members
         if member.name is data.value.name
           member.message = data.value.message
@@ -16,7 +15,6 @@ angular.module('milcotaker').controller('InputListController', [
 
     memberStore.on 'send', (data) ->
       if (data.value.type is 'join') and data.value.name? and (data.value.name isnt '')
-        console.log 'log: got memberStore data - type: join'
         isUnique = true
         for member in $scope.members
           if data.value.name is member.name
@@ -32,14 +30,11 @@ angular.module('milcotaker').controller('InputListController', [
           $scope.$apply()
 
       if data.value.type is 'leave' and data.value.name?
-        console.log 'log: got memberStore data - type: leave'
         for member in $scope.members
           newMembers = []
           newMembers.push member unless member.name is data.value.name
         $scope.members = newMembers
         $scope.$apply()
-
-      console.log $scope.members
 
     return
 ])

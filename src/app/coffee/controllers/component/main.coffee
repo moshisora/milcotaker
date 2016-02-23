@@ -4,7 +4,6 @@ angular.module('milcotaker').controller('MainController', [
     dataStore = Milkcocoa.getDataStore('message')
 
     dataStore.on('send', (data) ->
-      console.log 'recieve message'
       content = $('<span>').text(data.value.message)
       $('#c-main').append(content)
     )

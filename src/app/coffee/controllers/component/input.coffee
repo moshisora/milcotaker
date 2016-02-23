@@ -11,21 +11,18 @@ angular.module('milcotaker').controller('InputController', [
     inputMessage = $('.c-input__input-message:last')
 
     inputMessage.keyup ->
-      console.log 'log: send to inputStore'
       inputStore.send({
         name: inputName.val()
         message: inputMessage.val()
       })
 
     inputName.change ->
-      console.log 'log: send to memberStore - type: join'
       memberStore.send({
         type: 'join'
         name: inputName.val()
       })
 
     inputMessage.change ->
-      console.log 'send message'
       messageStore.send({
         name: inputName.val()
         message: inputMessage.val()
@@ -33,7 +30,6 @@ angular.module('milcotaker').controller('InputController', [
       inputMessage.val('')
 
     $scope.$on 'destroy', ->
-      console.log 'log: send to memberStore - type: leave'
       memberStore.send({
         type: 'leave'
         name: inputName.val()
