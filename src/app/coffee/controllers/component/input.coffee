@@ -24,6 +24,14 @@ angular.module('milcotaker').controller('InputController', [
         name: inputName.val()
       })
 
+    inputMessage.change ->
+      console.log 'send message'
+      messageStore.send({
+        name: inputName.val()
+        message: inputMessage.val()
+      })
+      inputMessage.val('')
+
     $scope.$on 'destroy', ->
       console.log 'log: send to memberStore - type: leave'
       memberStore.send({
