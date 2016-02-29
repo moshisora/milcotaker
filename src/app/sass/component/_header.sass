@@ -1,14 +1,24 @@
 .c-header
-  height: 52px
+  +clearfix
+  +size(100% 48px)
   border-bottom: solid 4px #4c4239
+  box-sizing: content-box
 
-.c-header__icon
+.c-header__logo
+  display: block
+  float: left
+
+.c-header__logo__icon
   +size(48px)
   float: left
 
-.c-header__logo
+.c-header__logo__title
   margin-left: 60px
   color: #4c4239
   font-size: 1.8em
   font-weight: bold
   line-height: 48px
+
+.c-header__setting
+  display: block
+  float: right
