@@ -4,7 +4,6 @@ angular.module('milcotaker').directive('cInput', [ ->
       scope: {
         name: '='
         message: '='
-        isSelf: '='
       }
       templateUrl: 'app/template/component/input.html'
       controller: 'InputController'
