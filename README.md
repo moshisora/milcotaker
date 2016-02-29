@@ -1,6 +1,6 @@
 ## milcotaker
 
-This repository is the development repository of application for note take using Milkcocoa real time data transmission service.
+This repository is the development repository of application for note-taking using Milkcocoa real time data transmission service.
 
 ## Using
 
@@ -9,7 +9,7 @@ This repository is the development repository of application for note take using
 * [generator-gulp-angular](https://github.com/Swiip/generator-gulp-angular)
 
 ## Setup
-gulp is used as build system helper. Install node packages and bower component in root direcory of repo.
+gulp is used as build system helper. Install node packages and bower components in root directory of repo.
 
 ```
 $ npm install
