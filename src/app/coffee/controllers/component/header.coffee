@@ -2,7 +2,7 @@ angular.module('milcotaker').controller('HeaderController', [
   '$scope', '$cookies'
   ($scope, $cookies) ->
 
-    $scope.milkcocoaAppId = $cookies.milkcocoaAppId || ''
+    $scope.milkcocoaAppId = $cookies.get('milkcocoaAppId') || ''
     $scope.showMilkcocoaAppIdView = false
 
     $scope.openMilkcocoaAppIdView = ->
