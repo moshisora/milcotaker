@@ -3,9 +3,9 @@
     <img src="assets/images/icon.png" class="c-header__logo__icon" alt="milcotaker">
     <h1 class="c-header__logo__title">milcotaker</h1>
   </a>
-  <a href="/setting" class="c-header__item">設定</a>
   <a class="c-header__item" ng-click="openMilkcocoaAppIdView()">Milkcocoa</a>
   <a class="c-header__item" ng-click="openTextFormatSettingView()">色設定</a>
+  <a class="c-header__item" ng-click="openShortcutSettingView()">ショートカット</a>
   <a class="c-header__item" ng-click="saveTakedText($event)" download="text.txt">保存</a>
 </div>
 
@@ -29,4 +29,20 @@
     <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--font-size" value="{{textFormatFontSize}}"> px
   </div>
   <button class="c-header__overlay__button" ng-click="setTextFormat()">変更</button>
+</div>
+
+<div class="c-header__overlay" ng-if="showShortcutSettingView">
+  <div class="c-header__overlay__section">
+    <h2 class="c-header__overlay__title">F1</h2>
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input__shortcutF1" value="{{shortcutF1}}">
+  </div>
+  <div class="c-header__overlay__section">
+    <h2 class="c-header__overlay__title">F2</h2>
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input__shortcutF2" value="{{shortcutF2}}">
+  </div>
+  <div class="c-header__overlay__section">
+    <h2 class="c-header__overlay__title">F3</h2>
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input__shortcutF3" value="{{shortcutF3}}">
+  </div>
+  <button class="c-header__overlay__button" ng-click="setShortcutKeys()">設定</button>
 </div>

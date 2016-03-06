@@ -13,11 +13,6 @@ angular.module('milcotaker').config([
         controller: 'RootController'
         controllerAs: 'root'
       })
-      .when('/setting', {
-        templateUrl: 'app/template/page/setting.html'
-        controller: 'SettingController'
-        controllerAs: 'setting'
-      })
       .otherwise({
         redirectTo: '/'
       })
