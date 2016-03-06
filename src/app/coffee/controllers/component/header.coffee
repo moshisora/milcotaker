@@ -13,5 +13,10 @@ angular.module('milcotaker').controller('HeaderController', [
       $cookies.put 'milkcocoaAppId', appId
       window.location.reload()
 
+    $scope.saveTakedText = ($event) ->
+      text = $('#c-main').text()
+      blob = new Blob [text], { type: 'text/plain' }
+      $event.target.href = window.URL.createObjectURL(blob)
+
     return
 ])
