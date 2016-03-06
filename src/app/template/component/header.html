@@ -5,6 +5,7 @@
   </a>
   <a href="/setting" class="c-header__item">設定</a>
   <a class="c-header__item" ng-click="openMilkcocoaAppIdView()">Milkcocoa</a>
+  <a class="c-header__item" ng-click="openTextFormatSettingView()">色設定</a>
   <a class="c-header__item" ng-click="saveTakedText($event)" download="text.txt">保存</a>
 </div>
 
@@ -12,4 +13,20 @@
   <h2 class="c-header__overlay__title">Milkcocoa App ID</h2>
   <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--milkcocoa" value="{{milkcocoaAppId}}">
   <button class="c-header__overlay__button" ng-click="setMilkcocoaAppId()">変更</button>
+</div>
+
+<div class="c-header__overlay" ng-if="showTextFormatSettingView">
+  <div class="c-header__overlay__section">
+    <h2 class="c-header__overlay__title">背景の色</h2>#
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--background-color" value="{{textFormatBackgroundColor}}">
+  </div>
+  <div class="c-header__overlay__section">
+    <h2 class="c-header__overlay__title">文字の色</h2>#
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--color" value="{{textFormatFontColor}}">
+  </div>
+  <div class="c-header__overlay__section">
+    <h2 class="c-header__overlay__title">文字の大きさ</h2>
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--font-size" value="{{textFormatFontSize}}"> px
+  </div>
+  <button class="c-header__overlay__button" ng-click="setTextFormat()">変更</button>
 </div>
