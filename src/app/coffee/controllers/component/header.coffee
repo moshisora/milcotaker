@@ -11,6 +11,7 @@ angular.module('milcotaker').controller('HeaderController', [
     $scope.setMilkcocoaAppId = ->
       appId = $("#c-header__overlay__input--milkcocoa").val()
       $cookies.put 'milkcocoaAppId', appId
+      window.location.reload()
 
     return
 ])
