@@ -41,6 +41,9 @@ angular.module('milcotaker').controller('InputSelfController', [
         shortcutKeys[key] = $cookies.get(key) || ''
     loadShortcutKeys()
 
+    $scope.$on 'updateShortcutKeys', ->
+      loadShortcutKeys()
+
     appendShortcutValue = (keyCode) ->
       key = 'shortcutF' + (keyCode - 112 + 1)
       appendedText = inputMessage.val() + shortcutKeys[key]
