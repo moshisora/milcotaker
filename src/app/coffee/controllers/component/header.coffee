@@ -4,6 +4,10 @@ angular.module('milcotaker').controller('HeaderController', [
 
     $scope.milkcocoaAppId = $cookies.get('milkcocoaAppId') || ''
 
+    $scope.textFormatBackgroundColor = $cookies.get('textFormatBackgroundColor') || ''
+    $scope.textFormatFontColor       = $cookies.get('textFormatFontColor') || ''
+    $scope.textFormatFontSize        = $cookies.get('textFormatFontSize') || ''
+
     closeAllSubViews = ->
       $scope.showMilkcocoaAppIdView    = false
       $scope.showTextFormatSettingView = false
@@ -29,16 +33,22 @@ angular.module('milcotaker').controller('HeaderController', [
       window.location.reload()
 
     $scope.setTextFormat = ->
-      console.log 'set text format'
       mainView = $('#c-main')
 
-      backgroundColor = $('#c-header__overlay__input--background-color').val()
-      fontColor       = $('#c-header__overlay__input--color').val()
-      fontSize        = $('#c-header__overlay__input--font-size').val()
+      $scope.textFormatBackgroundColor = $('#c-header__overlay__input--background-color').val()
+      $scope.textFormatFontColor       = $('#c-header__overlay__input--color').val()
+      $scope.textFormatFontSize        = $('#c-header__overlay__input--font-size').val()
 
-      mainView.css('backgroundColor', '#' + backgroundColor)
-      mainView.css('color', '#' + fontColor)
-      mainView.css('font-size', fontSize + 'px')
+      mainView.css('backgroundColor', '#' + $scope.textFormatBackgroundColor)
+      mainView.css('color', '#' + $scope.textFormatFontColor)
+      mainView.css('font-size', $scope.textFormatFontSize + 'px')
+
+      $cookies.put 'textFormatBackgroundColor', $scope.textFormatBackgroundColor
+      $cookies.put 'textFormatFontColor', $scope.textFormatFontColor
+      $cookies.put 'textFormatFontSize', $scope.textFormatFontSize
+
+      $scope.showTextFormatSettingView = false
+
       return
 
     $scope.saveTakedText = ($event) ->
