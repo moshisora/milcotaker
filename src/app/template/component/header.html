@@ -18,15 +18,15 @@
 <div class="c-header__overlay" ng-if="showTextFormatSettingView">
   <div class="c-header__overlay__section">
     <h2 class="c-header__overlay__title">背景の色</h2>#
-    <input class="c-header__overlay__input" type="text" id="" value="">
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--background-color" value="">
   </div>
   <div class="c-header__overlay__section">
     <h2 class="c-header__overlay__title">文字の色</h2>#
-    <input class="c-header__overlay__input" type="text" id="" value="">
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--color" value="">
   </div>
   <div class="c-header__overlay__section">
     <h2 class="c-header__overlay__title">文字の大きさ</h2>
-    <input class="c-header__overlay__input" type="text" id="" value=""> px
+    <input class="c-header__overlay__input" type="text" id="c-header__overlay__input--font-size" value=""> px
   </div>
-  <button class="c-header__overlay__button" ng-click="">変更</button>
+  <button class="c-header__overlay__button" ng-click="setTextFormat()">変更</button>
 </div>

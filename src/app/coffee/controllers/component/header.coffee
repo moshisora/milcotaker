@@ -10,12 +10,18 @@ angular.module('milcotaker').controller('HeaderController', [
     closeAllSubViews()
 
     $scope.openMilkcocoaAppIdView = ->
-      closeAllSubViews()
-      $scope.showMilkcocoaAppIdView = !$scope.showMilkcocoaAppIdView
+      if $scope.showMilkcocoaAppIdView
+        $scope.showMilkcocoaAppIdView = false
+      else
+        closeAllSubViews()
+        $scope.showMilkcocoaAppIdView = true if !$scope.showMilkcocoaAppIdView
 
     $scope.openTextFormatSettingView = ->
-      closeAllSubViews()
-      $scope.showTextFormatSettingView = !$scope.showTextFormatSettingView
+      if $scope.showTextFormatSettingView
+        $scope.showTextFormatSettingView = false
+      else
+        closeAllSubViews()
+        $scope.showTextFormatSettingView = true if !$scope.showTextFormatSettingView
 
     $scope.setMilkcocoaAppId = ->
       appId = $("#c-header__overlay__input--milkcocoa").val()
@@ -24,6 +30,16 @@ angular.module('milcotaker').controller('HeaderController', [
 
     $scope.setTextFormat = ->
       console.log 'set text format'
+      mainView = $('#c-main')
+
+      backgroundColor = $('#c-header__overlay__input--background-color').val()
+      fontColor       = $('#c-header__overlay__input--color').val()
+      fontSize        = $('#c-header__overlay__input--font-size').val()
+
+      mainView.css('backgroundColor', '#' + backgroundColor)
+      mainView.css('color', '#' + fontColor)
+      mainView.css('font-size', fontSize + 'px')
+      return
 
     $scope.saveTakedText = ($event) ->
       text = $('#c-main').text()
