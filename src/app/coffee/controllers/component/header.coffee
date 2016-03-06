@@ -1,6 +1,6 @@
 angular.module('milcotaker').controller('HeaderController', [
-  '$scope', '$cookies'
-  ($scope, $cookies) ->
+  '$scope', '$cookies', '$rootScope'
+  ($scope, $cookies, $rootScope) ->
 
     $scope.milkcocoaAppId = $cookies.get('milkcocoaAppId') || ''
 
@@ -72,6 +72,7 @@ angular.module('milcotaker').controller('HeaderController', [
       $cookies.put 'shortcutF2', $scope.shortcutF2
       $cookies.put 'shortcutF3', $scope.shortcutF3
 
+      $rootScope.$broadcast('updateShortcutKeys')
       $scope.showShortcutSettingView = false
 
       return
