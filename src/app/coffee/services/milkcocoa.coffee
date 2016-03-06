@@ -1,12 +1,16 @@
-angular.module('milcotaker').factory('Milkcocoa', [ ->
-  milkcocoa = new MilkCocoa('flagiknz7vkf.mlkcca.com')
+angular.module('milcotaker').factory('Milkcocoa', [
+  '$cookies'
+  ($cookies) ->
 
-  return {
-    object: milkcocoa
+    milkcocoaId = $cookies.get('milkcocoaAppId') + '.mlkcca.com'
+    milkcocoa   = new MilkCocoa(milkcocoaId)
 
-    getDataStore: (name) ->
-      dataStoreName = name | 'default'
-      dataStore = milkcocoa.dataStore(name)
-      return dataStore
-  }
+    return {
+      object: milkcocoa
+
+      getDataStore: (name) ->
+        dataStoreName = name | 'default'
+        dataStore = milkcocoa.dataStore(name)
+        return dataStore
+    }
 ])

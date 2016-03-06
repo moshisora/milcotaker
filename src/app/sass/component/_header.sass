@@ -19,6 +19,37 @@
   font-weight: bold
   line-height: 48px
 
-.c-header__setting
+.c-header__item
   display: block
   float: right
+  margin: 0 8px
+
+.c-header__overlay
+  +position(fixed, 52px 0px null 0px)
+  height: 48px
+  padding: 4px
+  background-color: #eee
+  box-sizing: border-box
+
+.c-header__overlay__title
+  float: left
+  width: 200px
+  line-height: 40px
+
+.c-header__overlay__input
+  +size(200px 40px)
+  padding: 4px
+  font-size: 1.2em
+  background-color: #fff
+  box-sizing: border-box
+  outline: none
+
+.c-header__overlay__button
+  +size(60px 40px)
+  color: #fff
+  border: solid 2px $brown
+  border-radius: 4px
+  background-color: $brown
+  box-sizing: border-box
+  outline: none
+  cursor: pointer
