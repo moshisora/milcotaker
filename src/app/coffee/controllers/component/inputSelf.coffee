@@ -1,6 +1,6 @@
 angular.module('milcotaker').controller('InputSelfController', [
-  '$scope', 'Milkcocoa'
-  ($scope, Milkcocoa) ->
+  '$scope', 'Milkcocoa', '$cookies'
+  ($scope, Milkcocoa, $cookies) ->
 
     inputStore   = Milkcocoa.getDataStore('input')
     messageStore = Milkcocoa.getDataStore('message')
@@ -33,6 +33,24 @@ angular.module('milcotaker').controller('InputSelfController', [
         type: 'leave'
         name: inputName.val()
       })
+
+    shortcutKeys = {}
+    loadShortcutKeys = ->
+      for i in [1..12]
+        key = 'shortcutF' + i
+        shortcutKeys[key] = $cookies.get(key) || ''
+    loadShortcutKeys()
+
+    $scope.$on 'updateShortcutKeys', ->
+      loadShortcutKeys()
+
+    appendShortcutValue = (keyCode) ->
+      key = 'shortcutF' + (keyCode - 112 + 1)
+      appendedText = inputMessage.val() + shortcutKeys[key]
+      inputMessage.val(appendedText)
+
+    $(document).keydown (event) ->
+      appendShortcutValue(event.keyCode)
 
     return
 ])
