@@ -34,6 +34,17 @@ angular.module('milcotaker').controller('InputSelfController', [
         name: inputName.val()
       })
 
+    memberStore.on 'send', (data) ->
+      if data.value.type is 'get' and inputName.val() isnt ''
+        memberStore.send({
+          type: 'reply'
+          name: inputName.val()
+        })
+
+    memberStore.send({
+      type: 'get'
+    })
+
     shortcutKeys = {}
     loadShortcutKeys = ->
       for i in [1..12]
