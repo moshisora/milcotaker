@@ -1,12 +1,21 @@
 angular.module('milcotaker').controller('MainController', [
   '$scope', 'Milkcocoa'
   ($scope, Milkcocoa) ->
-    dataStore = Milkcocoa.getDataStore('message')
+    messageStore = Milkcocoa.getDataStore('message')
+    memberStore  = Milkcocoa.getDataStore('member')
 
-    dataStore.on('send', (data) ->
+    messageStore.on('send', (data) ->
       content = $('<span>').text(data.value.message)
       $('#c-main').append(content)
     )
+
+    memberStore.on('send', (data) ->
+      console.log data.value.type
+    )
+
+    memberStore.send({
+      type: 'get'
+    })
 
     return
 ])
