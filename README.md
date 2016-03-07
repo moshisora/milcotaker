@@ -1,6 +1,7 @@
 ## milcotaker
 
-This repository is the development repository of application for note-taking using Milkcocoa real time data transmission service.
+This repository is the development repository of application for note-taking using Milkcocoa real time data transmission service.  
+built application is distributed in [https://moshisora.github.io/milcotaker](https://moshisora.github.io/milcotaker)
 
 ## Using
 
