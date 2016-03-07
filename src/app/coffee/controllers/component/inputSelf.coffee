@@ -46,6 +46,8 @@ angular.module('milcotaker').controller('InputSelfController', [
 
     appendShortcutValue = (keyCode) ->
       key = 'shortcutF' + (keyCode - 112 + 1)
+      return unless shortcutKeys[key]
+
       appendedText = inputMessage.val() + shortcutKeys[key]
       inputMessage.val(appendedText)
 
